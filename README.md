@@ -1,1 +1,0 @@
-# PartnerConnect-Template

@@ -1,0 +1,15 @@
+{
+  "version": "2",
+  "partner": "This_Patner",
+  "offering": "This_Offering ",
+  "description": "This is a sample manifest file that is being used for exploration into how we might use these files.",
+  "capabilities": {
+    "enrichment": {
+        "has_card": true,
+        "requires": ["latitude", "longitude"]
+      }
+  },
+  "credentials_schema": {
+    "apiKey": { "display": "API Key" }
+  }
+}

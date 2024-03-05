@@ -1,0 +1,28 @@
+{
+  "name": "template_partner_offering_name",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./lib/index.js",
+  "files": [
+    "lib",
+    "dist",
+    "manifest.json"
+  ],
+  "scripts": {
+    "build": "rm -rf lib && tsc -p tsconfig.json && npm run tsnode ./src/post-pack.ts",
+    "tsnode": "NODE_TLS_REJECT_UNAUTHORIZED=0 node -r ts-node/register --inspect=0.0.0.0:1337 ",
+    "tsnode-debug": "NODE_TLS_REJECT_UNAUTHORIZED=0 node -r ts-node/register --inspect=0.0.0.0:1337 --inspect-brk ",
+    "start": "npm run tsnode ./src/deployment/integrationHarness.ts",
+    "ComponentServer": "npm run tsnode ./server/componentServer.ts",
+    "create-scripts": "npm run tsnode ./src/deployment/installation.ts",
+    "prepack": "npm run build && npm run bundle",
+    "bundle": "NODE_ENV=production webpack --config ../ComponentHarness/webpack/config.js --mode production --env integration=Partner_Offering",
+    "bundle:dev": "NODE_ENV=development webpack --config ../ComponentHarness/webpack/config.js --mode development --env integration=Partner_Offering"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@betterview/integration-toolkit": "7.4.0",
+    "moment": "^2.29.1"
+  }
+}
